@@ -100,13 +100,13 @@ def answer_modify(request, answer_id):
     else:
         form = AnswerForm(instance=answer)
     ctx = {'form': form, 'answer':answer}
-    return render(request, 'pybo/question_form.html', ctx)
+    return render(request, 'pybo/answer_form.html', ctx)
 
 @login_required(login_url='common:login')
 def answer_delete(request, answer_id):
-    answer = get_object_or_404(Question, id=answer_id)
+    answer = get_object_or_404(Answer, id=answer_id)
     if request.user != answer.author:
         messages.error(request, '삭제 권한이 없습니다.')
-        return redirect('pybo:detail', question_id=answer.question.id)
-    answer.delete()
-    return redirect('pybo:index')
+    else:
+        answer.delete()
+    return redirect('pybo:detail', question_id=answer.question.id)
