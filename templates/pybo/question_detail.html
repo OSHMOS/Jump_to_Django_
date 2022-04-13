@@ -8,8 +8,9 @@
                 {{question.content}}
             </div>
             <div class="d-flex justify-content-end">
-                <div class="badge badge-light p-2">
-                    {{question.create_date}}
+                <div class="badge badge-light p-2 text-left">
+                    <div class="mb-2">{{question.author.username}}</div>
+                    <div>{{question.create_date}}</div>
                 </div>
             </div>
         </div>
@@ -25,8 +26,9 @@
             {{answer.content}}
         </div>
         <div class="d-flex justify-content-end">
-            <div class="badge badge-light p-2">
-                {{answer.create_date}}
+            <div class="badge badge-light p-2 text-left">
+                <div class="mb-2">{{answer.author.username}}</div>
+                <div>{{answer.create_date}}</div>
             </div>
         </div>
     </div>
